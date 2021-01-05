@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lumimqtt
 PKG_VERSION:=1.0.7
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PYPI_NAME:=$(PKG_NAME)
 PKG_HASH:=bb05880c75b38ac99b15ef1a04b162d7038fc3c263f60d5207c49e74932aa487
@@ -33,6 +33,7 @@ define Package/lumimqtt
   DEPENDS+= \
       +python3 \
       +python3-evdev \
+      +python3-pkg-resources \
       +python3-logging \
       +python3-asyncio \
       +python3-openssl \
