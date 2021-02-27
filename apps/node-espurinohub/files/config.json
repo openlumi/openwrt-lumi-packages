@@ -1,0 +1,55 @@
+{
+  "// If a device's address is here, it'll be given a human-readable name":0,
+  "known_devices" : {
+  },
+
+  "// Set this to true to only publish MQTT messages for known devices":0,
+  "only_known_devices": false,
+
+  "// How many seconds to wait for a packet before considering BLE connection":0,
+  "// broken and exiting. Higher values are useful with slowly advertising sensors.":0,
+  "// Setting a value of 0 disables the exit/restart.":0,
+  "ble_timeout": 20,
+
+  "// How many seconds to wait for emitting a presence event, after latest time polled":0,
+  "// Default is 60 seconds":0,
+  "presence_timeout" : 30,
+
+  "// Number of simultaneous bluetooth connection the device can handle (PI Zero=4)":0,
+  "max_connections" : 4,
+
+  "connection_timeout": 20,
+
+  "// MQTT path for history requests and output. Default is Empty (to disable).":0,
+  "//history_path": "/ble/hist/",
+
+  "// We can add our own custom advertising UUIDs here with names to help decode them":0,
+  "//advertised_services" : {
+    "ffff" : {
+      "name" : "level"
+    }
+  },
+
+  "// Make this nonzero to enable the HTTP server on the given port.":0,
+  "// See README.md for more info on what it does":0,
+  "http_port" : 1888,
+
+  "// Set this to enable the HTTP proxy - it's off by default for safety":0,
+  "// since it would be possible to spoof MAC addresses and use your":0,
+  "// connection":0,
+  "// NOTE: Some Bluetooth adaptors will cause the error: Command Disallowed (0xc)":0,
+  "// when trying to connect if http_proxyis enabled.":0,
+  "http_proxy" : false,
+
+  "// If there are any addresses here, they are given access to the HTTP proxy":0,
+  "http_whitelist" : [
+  ],
+  "mqtt_host": "mqtt://localhost",
+  "//mqtt_options": {
+    "username": "user",
+    "password": "pass",
+    "clientId": "clientid"
+  },
+  "// Define the topic prefix under which the MQTT data will be posted. Defaults to /ble which is not adviced. For new installation, please activate the option below.":0,
+  "mqtt_prefix": "ble"
+}
