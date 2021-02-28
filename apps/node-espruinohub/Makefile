@@ -8,14 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 
-PKG_NPM_NAME:=espurinohub
+PKG_NPM_NAME:=espruinohub
 PKG_NAME:=node-$(PKG_NPM_NAME)
 PKG_VERSION:=1
 PKG_RELEASE:=1
 PKG_REV:=master
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/G1K/EspruinoHub.git
+PKG_SOURCE_URL:=https://github.com/G1K/espruinohub.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_REV).tar.gz
 
@@ -30,16 +30,16 @@ PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/node-espurinohub
+define Package/node-espruinohub
   SUBMENU:=Node.js
   SECTION:=lang
   CATEGORY:=Languages
   TITLE:=A BLE -> MQTT bridge for Raspberry Pi and other Embedded devices
-  URL:=https://www.npmjs.org/package/espurinohub
+  URL:=https://github.com/espruino/espruinohub
   DEPENDS:=+node +libudev
 endef
 
-define Package/node-espurinohub/description
+define Package/node-espruinohub/description
  A BLE -> MQTT bridge for Raspberry Pi and other Embedded devices
 endef
 
@@ -82,12 +82,12 @@ define Build/Compile
 	rm -rf $(TMP_DIR)/npm-cache-$(TMPNPM)
 endef
 
-define Package/node-espurinohub/conffiles
-/etc/espurinohub/config.json
-/etc/espurinohub/
+define Package/node-espruinohub/conffiles
+/etc/espruinohub/config.json
+/etc/espruinohub/
 endef
 
-define Package/node-espurinohub/install
+define Package/node-espruinohub/install
 	$(INSTALL_DIR) $(1)/opt/$(PKG_NPM_NAME)
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/{package.json,LICENSE} $(1)/opt/$(PKG_NPM_NAME)
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/{config.json,*.js} $(1)/opt/$(PKG_NPM_NAME)
@@ -95,9 +95,9 @@ define Package/node-espurinohub/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/lib $(1)/opt/$(PKG_NPM_NAME)
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/www $(1)/opt/$(PKG_NPM_NAME)
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/espurinohub.init $(1)/etc/init.d/espurinohub
-	$(INSTALL_DIR) $(1)/etc/espurinohub
-	$(INSTALL_CONF) ./files/config.json $(1)/etc/espurinohub/config.json
+	$(INSTALL_BIN) ./files/espruinohub.init $(1)/etc/init.d/espruinohub
+	$(INSTALL_DIR) $(1)/etc/espruinohub
+	$(INSTALL_CONF) ./files/config.json $(1)/etc/espruinohub/config.json
 endef
 
-$(eval $(call BuildPackage,node-espurinohub))
+$(eval $(call BuildPackage,node-espruinohub))
