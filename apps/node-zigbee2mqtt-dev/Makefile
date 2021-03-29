@@ -6,16 +6,15 @@ include $(TOPDIR)/rules.mk
 
 PKG_NPM_NAME:=zigbee2mqtt
 PKG_NAME:=node-$(PKG_NPM_NAME)
-PKG_VERSION:=1.17.1-dev
-PKG_REV:=a8cd925c6a9aaa1bf801ad51c95a6b76852b5bee
-PKG_SHORT_REV:=$(shell echo $(PKG_REV) | cut -c 1-7)
-PKG_RELEASE:=$(shell date '+%Y%m%d')-$(PKG_SHORT_REV)
+PKG_VERSION:=dev
+PKG_REV:=dev
+PKG_RELEASE:=$(shell date '+%Y%m%d')
 
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/Koenkk/zigbee2mqtt.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_REV).tar.gz
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 
 PKG_MAINTAINER:=Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=GPL-3.0
