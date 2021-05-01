@@ -1,9 +1,0 @@
-{
-    "mqtt_host": "localhost",
-    "mqtt_port": 1883,
-    "mqtt_user": "",
-    "mqtt_password": "",
-    "topic_root": "lumi/{MAC}",
-    "sensor_threshold": 50,
-    "sensor_debounce_period": 60
-}
