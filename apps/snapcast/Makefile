@@ -8,13 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME := snapcast
-PKG_VERSION := 0.24.0
-PKG_RELEASE := $(PKG_SOURCE_VERSION)
+PKG_VERSION := 0.25.0
+PKG_RELEASE := 1
 PKG_USE_MIPS16 := 0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/badaix/snapcast.git
-PKG_SOURCE_VERSION:=v0.24.0
+PKG_SOURCE_VERSION:=v$(PKG_VERSION)
 PKG_BUILD_DIR:=$(BUILD_DIR)/snapcast-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
@@ -41,8 +41,8 @@ endef
 
 define Package/snapcast/description
 	$(call Package/snapcast/description/Default)
-	Snapcast is a multi-room client-server audio player, 
-	where all clients are time synchronized with the server 
+	Snapcast is a multi-room client-server audio player,
+	where all clients are time synchronized with the server
 	to play perfectly synced audio
 endef
 
