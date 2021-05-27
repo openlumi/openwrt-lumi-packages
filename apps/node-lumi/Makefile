@@ -36,7 +36,7 @@ define Package/node-lumi
   CATEGORY:=Languages
   TITLE:=node-lumi
   URL:=https://github.com/Beetle-II/lumi
-  DEPENDS:=+node
+  DEPENDS:=+node +libudev
 endef
 
 define Package/node-lumi/description
