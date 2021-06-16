@@ -32,6 +32,7 @@ define Package/python3-bluepy
   URL:=https://github.com/IanHarvey/bluepy
   VARIANT:=python3
   DEPENDS+= \
+       +python3 \
        +glib2
 endef
 

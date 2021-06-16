@@ -32,6 +32,7 @@ define Package/python3-txdbus
   URL:=https://github.com/cocagne/txdbus
   VARIANT:=python3
   DEPENDS+= \
+       +python3 \
        +python3-twisted
 endef
 

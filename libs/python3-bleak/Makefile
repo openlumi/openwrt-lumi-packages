@@ -32,6 +32,7 @@ define Package/python3-bleak
   URL:=https://github.com/hbldh/bleak
   VARIANT:=python3
   DEPENDS+= \
+       +python3 \
        +python3-txdbus
 endef
 

@@ -31,6 +31,8 @@ define Package/python3-aio-mqtt
   TITLE:=Asynchronous MQTT client
   URL:=https://github.com/NotJustAToy/aio-mqtt
   VARIANT:=python3
+  DEPENDS+= \
+       +python3
 endef
 
 define Package/python3-aio-mqtt/description
