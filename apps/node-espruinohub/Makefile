@@ -7,11 +7,10 @@
 
 include $(TOPDIR)/rules.mk
 
-
 PKG_NPM_NAME:=espruinohub
 PKG_NAME:=node-$(PKG_NPM_NAME)
-PKG_VERSION:=1
-PKG_RELEASE:=1
+PKG_VERSION:=0.0.2
+PKG_RELEASE:=8
 PKG_REV:=master
 
 PKG_SOURCE_PROTO:=git
@@ -66,17 +65,24 @@ define Build/Prepare
 endef
 
 define Build/Compile
-	$(NPM_FLAGS) npm install -g modclean node-gyp --no-optional --production
+	$(NPM_FLAGS) npm install -g modclean node-gyp@3.8.0 --no-optional --production
 	$(NPM_FLAGS) npm install --production --no-optional -g $(DL_DIR)/$(PKG_SOURCE)
-	cd $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/ && $(NPM_FLAGS) npm ci --production
+	mv $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/ $(PKG_INSTALL_DIR)/usr/lib/
 
-	du -hd1  $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/
+	cd $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/ && $(NPM_FLAGS) npm ci --production
 
 	$(PKG_INSTALL_DIR)/usr/bin/modclean --no-progress -r --patterns="default:safe" \
 	    --additional-patterns="*.d.ts" \
-	    --path $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/
-	du -hd1  $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/
-	rm -rf $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/node_modules/node-gyp/
+	    --path $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/
+
+	cd $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/node_modules/ && \
+	rm -rf node-gyp/ \
+	       node-addon-api/ \
+	       usb/ \
+	       mqtt/dist/ \
+	       mqtt/bin/ \
+	       mqtt/doc/ \
+	       psl/dist/
 
 	rm -rf $(TMP_DIR)/npm-tmp-$(TMPNPM)
 	rm -rf $(TMP_DIR)/npm-cache-$(TMPNPM)
@@ -89,15 +95,17 @@ endef
 
 define Package/node-espruinohub/install
 	$(INSTALL_DIR) $(1)/opt/$(PKG_NPM_NAME)
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/{package.json,LICENSE} $(1)/opt/$(PKG_NPM_NAME)
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/{config.json,*.js} $(1)/opt/$(PKG_NPM_NAME)
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/node_modules $(1)/opt/$(PKG_NPM_NAME)
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/lib $(1)/opt/$(PKG_NPM_NAME)
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/www $(1)/opt/$(PKG_NPM_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/{package.json,LICENSE} $(1)/opt/$(PKG_NPM_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/*.js $(1)/opt/$(PKG_NPM_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/config.json $(1)/opt/$(PKG_NPM_NAME)/config-example.json
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/node_modules $(1)/opt/$(PKG_NPM_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/lib $(1)/opt/$(PKG_NPM_NAME)
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/EspruinoHub/www $(1)/opt/$(PKG_NPM_NAME)
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/espruinohub.init $(1)/etc/init.d/espruinohub
 	$(INSTALL_DIR) $(1)/etc/espruinohub
 	$(INSTALL_CONF) ./files/config.json $(1)/etc/espruinohub/config.json
+	$(LN) /etc/espruinohub/config.json $(1)/opt/$(PKG_NPM_NAME)/config.json
 endef
 
 $(eval $(call BuildPackage,node-espruinohub))
