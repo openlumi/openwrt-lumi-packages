@@ -62,7 +62,8 @@ define Build/Compile
 	mkdir -p $(TMP_DIR)/modclean
 	$(NPM_FLAGS) npm i modclean --prefix=$(TMP_DIR)/modclean
 	echo "{\"hash\": \"$(PKG_SHORT_REV)\"}" > $(PKG_BUILD_DIR)/.hash.json
-	$(NPM_FLAGS) npm i -g --production $(PKG_BUILD_DIR)
+	$(NPM_FLAGS) npm i -g $(PKG_BUILD_DIR)
+	cd $(PKG_BUILD_DIR); $(NPM_FLAGS) npm run build
 	$(NPM_FLAGS) npm ci --production --prefix=$(PKG_BUILD_DIR)/
 	rm $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman/npm-shrinkwrap.json
 	rm $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman-converters/npm-shrinkwrap.json
@@ -89,11 +90,11 @@ endef
 
 define Package/node-zigbee2mqtt-dev/install
 	$(INSTALL_DIR) $(1)/opt/$(PKG_NPM_NAME)
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/{package.json,LICENSE} \
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/{package.json,.hash.json,LICENSE} \
 		$(1)/opt/$(PKG_NPM_NAME)/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/{*.md,*.js} \
 		$(1)/opt/$(PKG_NPM_NAME)/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/{node_modules,lib} \
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/{node_modules,dist} \
 		$(1)/opt/$(PKG_NPM_NAME)/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/$(PKG_NPM_NAME)/{data,scripts} \
 		$(1)/opt/$(PKG_NPM_NAME)/
