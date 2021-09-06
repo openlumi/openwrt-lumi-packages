@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2016 OpenWrt.org
+# Copyright (C) 2007-2021 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -31,7 +31,7 @@ define Package/lumimqtt
   TITLE:=MQTT agent for Xiaomi Lumi gateway
   URL:=https://github.com/openlumi/lumimqtt/
   DEPENDS+= \
-      +python3 \
+      +python3-base \
       +python3-evdev \
       +python3-pkg-resources \
       +python3-logging \
