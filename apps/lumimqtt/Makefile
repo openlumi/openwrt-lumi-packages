@@ -8,11 +8,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lumimqtt
-PKG_VERSION:=1.0.11
-PKG_RELEASE:=2
+PKG_VERSION:=1.0.13
+PKG_RELEASE:=1
 
 PYPI_NAME:=$(PKG_NAME)
-PKG_HASH:=d6a8956916c2b0e9a8d44e024c8a2614963479345e5c917b9275104cebdf04c9
+PKG_HASH:=b082d00c60e0f41e4b2bf0899c71325453cbd4fd22b15308822bac8f7d8c99e9
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-lumimqtt-$(PKG_VERSION)
 
@@ -31,6 +31,7 @@ define Package/lumimqtt
   TITLE:=MQTT agent for Xiaomi Lumi gateway
   URL:=https://github.com/openlumi/lumimqtt/
   DEPENDS+= \
+      +kmod-hid \
       +python3-base \
       +python3-evdev \
       +python3-pkg-resources \

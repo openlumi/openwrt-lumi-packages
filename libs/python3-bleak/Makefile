@@ -8,11 +8,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python3-bleak
-PKG_VERSION:=0.10.0
+PKG_VERSION:=0.12.1
 PKG_RELEASE:=1
 
 PYPI_NAME:=bleak
-PKG_HASH:=5c3a873965f2910865895e572e7a4f10533d6e150e6ba17936397426bf8d1eee
+PKG_HASH:=4a80a24cc944e52e856054639f298229c39a2fc720e5f7adbeebb117d10849ed
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-python3-bleak-$(PKG_VERSION)
 
@@ -33,7 +33,7 @@ define Package/python3-bleak
   VARIANT:=python3
   DEPENDS+= \
        +python3 \
-       +python3-txdbus
+       +python3-dbus-next
 endef
 
 define Package/python3-bleak/description
