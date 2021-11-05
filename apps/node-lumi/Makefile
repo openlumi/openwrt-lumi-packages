@@ -76,6 +76,7 @@ define Build/Compile
 	$(PKG_INSTALL_DIR)/usr/bin/modclean --no-progress -r --patterns="default:safe" \
 	    --additional-patterns="*.d.ts" \
 	    --path $(PKG_INSTALL_DIR)/usr/lib/node_modules/lumi/
+	rm -rf $(PKG_INSTALL_DIR)/usr/lib/node_modules/lumi/node_modules/usb
 	du -hd1  $(PKG_INSTALL_DIR)/usr/lib/node_modules/lumi/
 
 	rm -rf $(TMP_DIR)/npm-tmp-$(TMPNPM)
