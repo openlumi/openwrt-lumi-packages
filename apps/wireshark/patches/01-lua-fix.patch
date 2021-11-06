@@ -1,0 +1,14 @@
+diff -ruNa a/epan/wslua/lua_bitop.c b/epan/wslua/lua_bitop.c
+--- a/epan/wslua/lua_bitop.c	2016-10-05 02:27:54.000000000 +0800
++++ b/epan/wslua/lua_bitop.c	2016-10-28 21:02:34.385675989 +0800
+@@ -79,10 +79,6 @@
+     b = bn.b;
+   else
+     b = (UBits)(SBits)bn.n;
+-#elif defined(LUA_NUMBER_FLOAT)
+-#error "A 'float' lua_Number type is incompatible with this library"
+-#else
+-#error "Unknown number type, check LUA_NUMBER_* in luaconf.h"
+ #endif
+ #if LUA_VERSION_NUM < 502
+   if (b == 0 && !lua_isnumber(L, idx)) {
