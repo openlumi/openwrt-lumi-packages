@@ -32,7 +32,9 @@ define Package/python3-aio-mqtt
   URL:=https://github.com/NotJustAToy/aio-mqtt
   VARIANT:=python3
   DEPENDS+= \
-       +python3
+       +python3-base \
+       +python3-asyncio \
+       +python3-openssl
 endef
 
 define Package/python3-aio-mqtt/description
