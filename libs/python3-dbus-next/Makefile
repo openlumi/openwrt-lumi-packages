@@ -34,7 +34,7 @@ define Package/python3-dbus-next
   DEPENDS+= \
        +python3-light \
        +python3-asyncio \
-       +ptyhon3-logging \
+       +python3-logging \
        +python3-urllib
 endef
 
