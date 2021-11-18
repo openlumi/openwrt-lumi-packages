@@ -8,11 +8,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ble2mqtt
-PKG_VERSION:=0.1.0a39
+PKG_VERSION:=0.1.0a42
 PKG_RELEASE:=1
 
 PYPI_NAME:=$(PKG_NAME)
-PKG_HASH:=51c79f1dcfa6ffd08ff2d57182f64205a6fc837a620ad2f51d4e14272d2525d1
+PKG_HASH:=db0f66964b56284c19b11cf75497ca0776342041ebd4c44d3740d978885edf8d
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-ble2mqtt-$(PKG_VERSION)
 
@@ -32,8 +32,7 @@ define Package/ble2mqtt
   URL:=https://github.com/openlumi/lumimqtt/
   DEPENDS+= \
       +bluez-utils \
-      +python3 \
-      +python3-openssl \
+      +python3-light \
       +python3-aio-mqtt \
       +python3-bleak
   VARIANT:=python3

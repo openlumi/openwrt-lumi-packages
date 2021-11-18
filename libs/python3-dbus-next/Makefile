@@ -32,7 +32,10 @@ define Package/python3-dbus-next
   URL:=https://github.com/altdesktop/python-dbus-next
   VARIANT:=python3
   DEPENDS+= \
-       +python3
+       +python3-light \
+       +python3-asyncio \
+       +ptyhon3-logging \
+       +python3-urllib
 endef
 
 define Package/python3-dbus-next/description
