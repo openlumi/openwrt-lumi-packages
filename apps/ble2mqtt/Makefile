@@ -1,6 +1,4 @@
 #
-# Copyright (C) 2007-2016 OpenWrt.org
-#
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
@@ -8,11 +6,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ble2mqtt
-PKG_VERSION:=0.1.0a44
+PKG_VERSION:=0.1.0a47
 PKG_RELEASE:=1
 
 PYPI_NAME:=$(PKG_NAME)
-PKG_HASH:=d805e4a6f8b22ebff7b4298a341aa45e4f7bfbec1537d68c1767fa771c4ffa89
+PKG_HASH:=92e0758aaa0ca54523ca409a6950a9a1a51c406e422291452e821c57fd6baefb
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-ble2mqtt-$(PKG_VERSION)
 
