@@ -65,15 +65,15 @@ define Build/Compile
 	$(NPM_FLAGS) npm i -g $(PKG_BUILD_DIR)
 	cd $(PKG_BUILD_DIR); $(NPM_FLAGS) npm run build
 	$(NPM_FLAGS) npm ci --production --prefix=$(PKG_BUILD_DIR)/
-	rm $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman/npm-shrinkwrap.json
-	rm $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman-converters/npm-shrinkwrap.json
-	rm -f $(PKG_BUILD_DIR)/node_modules/zigbee2mqtt-frontend/dist/report.html
-	rm -f $(PKG_BUILD_DIR)/node_modules/zigbee2mqtt-frontend/dist/*.map
-	rm -f $(PKG_BUILD_DIR)/node_modules/zigbee2mqtt-frontend/dist/*/*.map
-	rm -rf $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman-converters/node_modules/zigbee-herdsman/
-	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/min
-	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/src
-	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/locale
+	rm $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman/package-lock.json || true
+	rm $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman-converters/package-lock.json || true
+	rm -f $(PKG_BUILD_DIR)/node_modules/zigbee2mqtt-frontend/dist/report.html || true
+	rm -f $(PKG_BUILD_DIR)/node_modules/zigbee2mqtt-frontend/dist/*.map || true
+	rm -f $(PKG_BUILD_DIR)/node_modules/zigbee2mqtt-frontend/dist/*/*.map || true
+	rm -rf $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman-converters/node_modules/zigbee-herdsman/ || true
+	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/min || true
+	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/src || true
+	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/locale || true
 
 	$(TMP_DIR)/modclean/node_modules/.bin/modclean --no-progress -r --patterns="default:safe" \
     	    --additional-patterns="*.d.ts" \
