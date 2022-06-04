@@ -8,11 +8,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python3-aio-mqtt
-PKG_VERSION:=0.2.0
+PKG_VERSION:=0.3.2
 PKG_RELEASE:=1
 
-PYPI_NAME:=aio-mqtt
-PKG_HASH:=c1dcce2e536cb25277b5f222cf3699a5c64cd461597545c28a7c2625d022c08d
+PYPI_NAME:=aio-mqtt-mod
+PKG_HASH:=df66bc1cccd47e114e7ccd8a668cdb2e14e939780b9a20565067f27d864c365d
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-python3-aio-mqtt-$(PKG_VERSION)
 
@@ -29,7 +29,7 @@ define Package/python3-aio-mqtt
   SECTION:=lang
   CATEGORY:=Languages
   TITLE:=Asynchronous MQTT client
-  URL:=https://github.com/NotJustAToy/aio-mqtt
+  URL:=https://github.com/devbis/aio-mqtt
   VARIANT:=python3
   DEPENDS+= \
        +python3-base \
