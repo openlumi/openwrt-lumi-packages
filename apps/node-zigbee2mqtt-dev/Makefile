@@ -63,7 +63,7 @@ define Build/Compile
 	$(NPM_FLAGS) npm i modclean --prefix=$(TMP_DIR)/modclean
 	echo "{\"hash\": \"$(PKG_SHORT_REV)\"}" > $(PKG_BUILD_DIR)/.hash.json
 	$(NPM_FLAGS) npm i -g $(PKG_BUILD_DIR)
-	cd $(PKG_BUILD_DIR); $(NPM_FLAGS) npm run build
+	cd $(PKG_BUILD_DIR); $(NPM_FLAGS) npm ci ; $(NPM_FLAGS) npm run build
 	$(NPM_FLAGS) npm ci --production --prefix=$(PKG_BUILD_DIR)/
 	rm $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman/package-lock.json || true
 	rm $(PKG_BUILD_DIR)/node_modules/zigbee-herdsman-converters/package-lock.json || true
