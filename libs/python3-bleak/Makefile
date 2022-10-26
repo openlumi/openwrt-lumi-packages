@@ -6,11 +6,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python3-bleak
-PKG_VERSION:=0.14.3
+PKG_VERSION:=0.19.0
 PKG_RELEASE:=1
 
 PYPI_NAME:=bleak
-PKG_HASH:=760e5bb1e804087f762576b9b9563d63b47d521b1652988e28c3cb5e64b61990
+PKG_HASH:=cce5200ca9bac7daaa74dd009c867c8c2b161a124e234c74307462e86caf50e6
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-python3-bleak-$(PKG_VERSION)
 
@@ -32,7 +32,8 @@ define Package/python3-bleak
   DEPENDS+= \
        +python3-light \
        +python3-asyncio \
-       +python3-dbus-next
+       +python3-dbus-fast \
+       +python3-async-timeout
 endef
 
 define Package/python3-bleak/description
