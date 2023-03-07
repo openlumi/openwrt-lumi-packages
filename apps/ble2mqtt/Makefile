@@ -27,7 +27,7 @@ define Package/ble2mqtt
   CATEGORY:=OpenLumi
   SUBMENU:=Apps
   TITLE:=Service to export BLE devices to MQTT with Home Assistant discovery
-  URL:=https://github.com/openlumi/lumimqtt/
+  URL:=https://github.com/devbis/ble2mqtt/
   DEPENDS+= \
       +bluez-utils \
       +python3-light \
