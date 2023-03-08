@@ -74,6 +74,7 @@ define Build/Compile
 	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/min || true
 	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/src || true
 	rm -rf $(PKG_BUILD_DIR)/node_modules/moment/locale || true
+	rm -rf $(PKG_BUILD_DIR)/node_modules/@serialport/bindings-cpp/prebuilds || true
 	rm -rf $(PKG_BUILD_DIR)/node_modules/{react-icons,@rjsf,react-dom,react-bootstrap} || true
 
 	$(TMP_DIR)/modclean/node_modules/.bin/modclean --no-progress -r --patterns="default:safe" \
