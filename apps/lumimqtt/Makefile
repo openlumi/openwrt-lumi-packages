@@ -18,6 +18,8 @@ PKG_MAINTAINER:=Ivan Belokobylskiy <belokobylskij@gmail.com>
 PKG_LICENSE:=GPL-3.0
 PKG_LICENSE_FILES:=PKG-INFO
 
+PKG_BUILD_DEPENDS:=python-setuptools-scm/host
+
 include $(TOPDIR)/feeds/packages/lang/python/pypi.mk
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
