@@ -39,7 +39,7 @@ define Package/lumimqtt
       +python3-asyncio \
       +python3-openssl \
       +python3-uuid \
-      +python3-aio-mqtt
+      +python3-aio-mqtt-mod
   VARIANT:=python3
 endef
 
