@@ -10,11 +10,11 @@ include $(TOPDIR)/rules.mk
 PKG_NPM_NAME:=espruinohub
 PKG_NAME:=node-$(PKG_NPM_NAME)
 PKG_VERSION:=0.0.2
-PKG_RELEASE:=10
+PKG_RELEASE:=11
 PKG_REV:=master
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/espruino/espruinohub.git
+PKG_SOURCE_URL:=https://github.com/openlumi/espruinohub.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_REV).tar.gz
 
@@ -65,7 +65,7 @@ define Build/Prepare
 endef
 
 define Build/Compile
-	$(NPM_FLAGS) npm install -g modclean node-gyp@3.8.0 --no-optional --production
+	$(NPM_FLAGS) npm install -g modclean node-gyp --no-optional --production
 	$(NPM_FLAGS) npm install --production --no-optional -g $(DL_DIR)/$(PKG_SOURCE)
 	mv $(PKG_INSTALL_DIR)/usr/lib/node_modules/EspruinoHub/ $(PKG_INSTALL_DIR)/usr/lib/
 
