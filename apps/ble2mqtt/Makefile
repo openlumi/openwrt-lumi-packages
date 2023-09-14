@@ -31,6 +31,8 @@ define Package/ble2mqtt
   DEPENDS+= \
       +bluez-utils \
       +python3-light \
+      +python3-uuid \
+      +python3-xml \
       +python3-aio-mqtt \
       +python3-bleak
   VARIANT:=python3
