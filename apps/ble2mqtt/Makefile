@@ -26,7 +26,7 @@ define Package/ble2mqtt
   SUBMENU:=Python
   TITLE:=Bluetooth to MQTT bridge
   URL:=https://github.com/devbis/ble2mqtt/
-  DEPENDS:=+bluez-utils +python3-light +python3-aio-mqtt-mod +python3-asyncio +python3-bleak +python3-logging +python3-uuid +python3-xml
+  DEPENDS:=+bluez-utils +python3 +python3-aio-mqtt-mod +python3-asyncio +python3-bleak +python3-logging +python3-uuid +python3-xml
 endef
 
 define Package/ble2mqtt/description
