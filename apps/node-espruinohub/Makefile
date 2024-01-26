@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 PKG_NPM_NAME:=espruinohub
 PKG_NAME:=node-$(PKG_NPM_NAME)
 PKG_VERSION:=0.0.2
-PKG_RELEASE:=11
+PKG_RELEASE:=12
 PKG_REV:=master
 
 PKG_SOURCE_PROTO:=git
@@ -82,7 +82,9 @@ define Build/Compile
 	       mqtt/dist/ \
 	       mqtt/bin/ \
 	       mqtt/doc/ \
-	       psl/dist/
+	       psl/dist/ \
+	       bufferutil/prebuilds \
+	       utf-8-validate/prebuilds
 
 	rm -rf $(TMP_DIR)/npm-tmp-$(TMPNPM)
 	rm -rf $(TMP_DIR)/npm-cache-$(TMPNPM)
