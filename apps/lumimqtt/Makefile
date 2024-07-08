@@ -13,6 +13,7 @@ PYPI_NAME:=$(PKG_NAME)
 PKG_HASH:=fb0f08d39b3c4055e2864d048feffe2a556c6dfcb497250fcfed01249133292c
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-lumimqtt-$(PKG_VERSION)
+PKG_BUILD_DEPENDS:=python-setuptools-scm/host
 
 PKG_MAINTAINER:=Ivan Belokobylskiy <belokobylskij@gmail.com>
 PKG_LICENSE:=GPL-3.0

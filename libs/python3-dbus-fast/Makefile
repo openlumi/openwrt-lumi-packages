@@ -9,9 +9,11 @@ PKG_VERSION:=1.83.1
 PKG_RELEASE:=1
 
 PYPI_NAME:=dbus-fast
+PYPI_SOURCE_NAME:=dbus_fast
 PKG_HASH:=32269bee5d30b3ccc800eccac0b06bb233c514efd2871ebc649f11a987ee8d33
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-python3-dbus-fast-$(PKG_VERSION)
+PKG_BUILD_DEPENDS:=python-cython/host python-poetry-core/host
 
 PKG_MAINTAINER:=Ivan Belokobylskiy <belokobylskij@gmail.com>
 PKG_LICENSE:=MIT
