@@ -6,11 +6,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lumimqtt
-PKG_VERSION:=1.0.20
+PKG_VERSION:=1.0.21
 PKG_RELEASE:=1
 
 PYPI_NAME:=$(PKG_NAME)
-PKG_HASH:=953b7e54b709884cbe82dbd31caf11fb0ebf682e515ceae6d65f0c020507162e
+PKG_HASH:=428f1013400728a1008bb9fc9e4c6cb68630272138fd48e3a2ec8161d2c9237c
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(BUILD_VARIANT)-lumimqtt-$(PKG_VERSION)
 
@@ -32,7 +32,7 @@ define Package/lumimqtt
   URL:=https://github.com/openlumi/lumimqtt/
   DEPENDS+= \
       +kmod-hid \
-      +python3-base \
+      +python3 \
       +python3-evdev \
       +python3-pkg-resources \
       +python3-logging \
